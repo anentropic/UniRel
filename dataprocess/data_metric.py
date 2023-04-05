@@ -1,5 +1,6 @@
-from sklearn.metrics import precision_recall_fscore_support, matthews_corrcoef, f1_score
-from transformers import EvalPrediction, set_seed
+from sklearn.metrics import precision_recall_fscore_support
+from transformers import EvalPrediction
+
 
 def calclulate_f1(statics_dict):
     prec, recall, f1 = 0, 0, 0
@@ -8,6 +9,7 @@ def calclulate_f1(statics_dict):
         recall = float(statics_dict["c"] / statics_dict["g"])
         f1 = float(prec * recall) / float(prec + recall) * 2
     return {"prec": prec, "recall": recall, "f1": f1}
+
 
 def unirel_metric(p: EvalPrediction):
     token_len = 102

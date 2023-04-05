@@ -1,11 +1,12 @@
 import os
 import json
-import random
-import torch
-import time
-import numpy as np
 import logging
-import unicodedata, re
+import random
+import time
+import unicodedata
+
+import numpy as np
+import torch
 
 
 def load_json(input_file):

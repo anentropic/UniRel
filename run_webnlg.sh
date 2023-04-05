@@ -15,7 +15,7 @@ python3 run.py \
     --model_dir ./bert-base-cased/ \
     --output_dir ./output \
     --overwrite_output_dir \
-    --dataset_dir YourDataDirectory \
+    --dataset_dir unirel_in_data \
     --dataloader_pin_memory \
     --dataloader_num_workers 4 \
     --lr_scheduler_type cosine \

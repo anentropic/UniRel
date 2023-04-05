@@ -1,0 +1,6 @@
+[submodule "CasRel"]
+	path = CasRel
+	url = https://github.com/weizhepei/CasRel.git
+[submodule "TPlinker-joint-extraction"]
+	path = TPlinker-joint-extraction
+	url = https://github.com/131250208/TPlinker-joint-extraction.git

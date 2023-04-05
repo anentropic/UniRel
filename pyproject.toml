@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "unirel"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+torch = "^2.0.0"
+transformers = "^4.27.4"
+numpy = "^1.24.2"
+scikit-learn = "^1.2.2"
+tqdm = "^4.65.0"
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.12.0"
+pdbpp = "^0.10.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

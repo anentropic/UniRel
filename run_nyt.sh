@@ -12,10 +12,10 @@ python3 run.py \
     --save_steps 5000 \
     --evaluation_strategy steps \
     --warmup_ratio 0.1 \
-    --model_dir ./bert-base-cased/ \
+    --model_dir bert-base-cased \
     --output_dir ./output \
     --overwrite_output_dir \
-    --dataset_dir YourDataDirectory \
+    --dataset_dir unirel_in_data \
     --dataloader_pin_memory \
     --dataloader_num_workers 4 \
     --lr_scheduler_type cosine \

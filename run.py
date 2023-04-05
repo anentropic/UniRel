@@ -7,22 +7,18 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 import transformers
-import numpy as np
-import torch
 # from torch.utils.tensorboard import SummaryWriter
 
-from transformers import (BertTokenizerFast, BertModel, Trainer,
-                          TrainingArguments, BertConfig, BertLMHeadModel)
-
+from transformers import (BertTokenizerFast, Trainer,
+                          TrainingArguments, BertConfig,)
+from transformers import set_seed
 from transformers.hf_argparser import HfArgumentParser
-from transformers import EvalPrediction, set_seed
 
 from dataprocess.data_processor import UniRelDataProcessor
 from dataprocess.dataset import UniRelDataset
-
+from dataprocess.data_extractor import unirel_extractor
+from dataprocess.data_metric import unirel_metric
 from model.model_transformers import  UniRelModel
-from dataprocess.data_extractor import *
-from dataprocess.data_metric import *
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 

@@ -1,13 +1,12 @@
 import json
-import numpy as np
-import torch
-import transformers
-from transformers import (BertTokenizerFast)
-import logging
 import os
-import sys
+
+import numpy as np
+import transformers
+
 
 logger = transformers.utils.logging.get_logger(__name__)
+
 
 def calclulate_f1(statics_dict, prefix=""):
     """
@@ -21,6 +20,7 @@ def calclulate_f1(statics_dict, prefix=""):
         recall = float(statics_dict["c"] / statics_dict["g"])
         f1 = float(prec * recall) / float(prec + recall) * 2
     return {prefix+"-prec": prec, prefix+"-recall": recall, prefix+"-f1": f1}
+
 
 def combine_dict(dicta, dictb):
     new_dict = {}
@@ -207,4 +207,3 @@ def unirel_extractor(tokenizer,
     with open(path, "w") as wp:
         json.dump(extract_data, wp, indent=2, ensure_ascii=False)
     return all_metirc_results["all-prec"], all_metirc_results["all-recall"], all_metirc_results["all-f1"]
-

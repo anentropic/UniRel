@@ -1,18 +1,19 @@
-import torch
 import dataclasses
 from typing import Optional
-from torch import nn
 
-from transformers import (PreTrainedModel, BertPreTrainedModel, BertConfig,
-                          BertTokenizerFast)
+import torch
+from torch import nn
+from transformers import BertPreTrainedModel, BertTokenizerFast
 from transformers.file_utils import ModelOutput
-from transformers.models.bert.modeling_bert import BertOnlyMLMHead, BertOnlyNSPHead, BertForMaskedLM, BertLMHeadModel
+
 from .modify_bert import BertModel
+
 
 @dataclasses.dataclass
 class UniRelOutput(ModelOutput):
     loss: Optional[torch.FloatTensor] = None
     tail_preds: Optional[torch.FloatTensor] = None
+
 
 class UniRelModel(BertPreTrainedModel):
     """

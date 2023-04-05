@@ -1,16 +1,14 @@
+import json
 import os
+import math
 import re
 import unicodedata
-import math
-import json
-import random
-import copy
+
 import numpy as np
 from tqdm import tqdm
-from utils import load_json, load_dict, write_dict, str_q2b
+
 import dataprocess.rel2text
 
-from transformers import BertTokenizerFast
 
 # tokenizer = BertTokenizerFast.from_pretrained("bert-base-cased")
 
@@ -254,4 +252,3 @@ class UniRelDataProcessor(object):
         print(f"more than 100: {token_len_big_than_100}")
         print(f"more than 150: {token_len_big_than_150}")
         return outputs
-
