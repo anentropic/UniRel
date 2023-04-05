@@ -1,3 +1,45 @@
+## About this fork
+
+For some reason I decided I wanted to train this model for myself.
+
+From the README it looked like there were some instructions and it might be easy, but actually the process was kind of cumbersome and there were a lot of missing details.
+
+To be fair the problems are mostly in other repos - the training data that UniRel expects to work on is derived from two other projects ([TPLinker](https://github.com/131250208/TPlinker-joint-extraction), which in turn depends on [CasRel](https://github.com/weizhepei/CasRel)). These both had poor instructions and needed some tweaks to be usable. (In fact CasRel in turn depends on some data stored in Google Drive, originating in yet another project here https://github.com/xiangrongzeng/copy_re#data)
+
+The end result is I have forked all three, brought the two dependencies in as git submodules, and written a helper script that duct-tapes this messy toolchain together and generates the training data that UniRel expects.
+ 
+I was unable to install the specified dependencies under Python 3.8 on my M1 Macbook. Instead I've just created a new `poetry` project and installed newer versions of everything, seems to work fine.
+
+### Prerequisites
+
+If you haven't already: https://python-poetry.org/docs/#installation
+
+Then `poetry install` and `poetry shell` to activate the env.
+
+The original data is in a 7-Zip archive, so you need the `7z` command installed in your shell. For mac you can `brew install p7zip`. You also need `curl`.
+
+Now just:
+```
+./getdata.sh
+```
+
+NOTE: this only prepares the "NYT*" training data. To train WebNLG you're on your own for now.
+
+### UniRel training scripts
+
+`./run_nyt.sh` should work now!
+
+We're running PyTorch 2.0.0 now, so on Apple Silicon you can `./run_nyt.sh --use_mps_device` and it will use the GPU.
+
+It is still slow though, I ran for ~30 mins and it looked like there were around 5 days remaining 🐌⏱️
+
+### Why bother?
+
+I was interested in the model because it's a BERT derivative.
+
+Also at time of writing (April 2023) UniRel holds the #1 spot for the "Relation Extraction on NYT" benchmark:  
+https://paperswithcode.com/sota/relation-extraction-on-nyt
+
 # UniRel
 
 Released code for our EMNLP22 paper: UniRel: Unified Representation and Interaction for Joint Relational Triple Extraction.
