@@ -24,4 +24,5 @@ python3 run.py \
     --dataset_name webnlg_star \
     --test_data_type nyt_all_sa \
     --threshold 0.5 \
-    --do_train
+    --do_train \
+    $@
